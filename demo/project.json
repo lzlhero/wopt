@@ -1,0 +1,46 @@
+{
+	// copy info, Windows' path must like "C:\\path\\to\\project"
+	"source_dir": "original-project",
+	"target_dir": "target-project",
+	"copy_exclude_patterns" : [".svn", ".DS_Store"],
+
+	// scan template files list.
+	"scan_include_paths": [
+		"index.html",
+		"index.html",
+		"html"
+	],
+	"scan_include_patterns": ["*.html"],
+
+	// scan contents info.
+	"scan_to_build": [
+		{
+			"id": "combo.css",
+			"path": "combo/combo.css",
+			"html": "<link href=\"{$webroot}/combo.css\" rel=\"stylesheet\" type=\"text/css\" />"
+		},
+		{
+			"id": "combo.js",
+			"path": "combo/combo.js",
+			"html": "<script src=\"{$webroot}/combo.js\" type=\"text/javascript\"></script>"
+		},
+		{
+			"id": "page1.css",
+			"path": "combo/page1.css",
+			"html": "<link href=\"{$webroot}/page1.css\" rel=\"stylesheet\" type=\"text/css\" />"
+		},
+		{
+			"id": "page2.js",
+			"path": "combo/page2.js",
+			"html": "<script src=\"{$webroot}/page2.js\" type=\"text/javascript\"></script>"
+		}
+	],
+
+	// url mapping for web virtual paths.
+	"url_mapping": [
+		{
+			"url_path": "{$webroot}",
+			"local_path": "."
+		}
+	]
+}

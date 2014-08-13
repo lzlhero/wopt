@@ -1,0 +1,1 @@
+var page2 = "new page2";
