@@ -84,10 +84,9 @@ function get_scan_files($target_dir, $configs) {
 	// canonicalized all scan include paths.
 	chdir($target_dir);
 	$paths = $configs["scan_include_paths"];
-	$length = count($paths);
 	$scan_include_paths = array();
-	for ($i = 0; $i < $length; $i++) {
-		$real_path = realpath($paths[$i]);
+	foreach ($paths as $path) {
+		$real_path = realpath($path);
 		if ($real_path) {
 			$scan_include_paths[] = $real_path;
 		}
@@ -98,14 +97,12 @@ function get_scan_files($target_dir, $configs) {
 
 	// get all scan files.
 	$scan_files = array();
-	$length = count($scan_include_paths);
-	for ($i = 0; $i < $length; $i++) {
-		if (is_file($scan_include_paths[$i])) {
-			$scan_files[] = $scan_include_paths[$i];
+	foreach ($scan_include_paths as $path) {
+		if (is_file($path)) {
+			$scan_files[] = $path;
 		}
-		elseif (is_dir($scan_include_paths[$i])) {
-			$scan_files = array_merge($scan_files, 
-					get_scan_dir_files($scan_include_paths[$i], $pattern));
+		elseif (is_dir($path)) {
+			$scan_files = array_merge($scan_files, get_scan_dir_files($path, $pattern));
 		}
 	}
 
@@ -169,7 +166,10 @@ function get_local_files($url_path, $local_path, $urls) {
 
 	$length = count($mapping_files);
 	for ($i = 0; $i < $length; $i++) {
-		$local_files[] = realpath($mapping_files[$i]);
+		$local_file = realpath($mapping_files[$i]);
+		if ($local_file) {
+			$local_files[] = $local_file;
+		}
 	}
 
 	return $local_files;
@@ -218,12 +218,11 @@ function get_build_info($files, $configs) {
 		$urls = array();
 		$inside_files = array();
 
-		$file_length = count($files);
-		for ($j = 0; $j < $file_length; $j++) {
-			$file_urls = get_urls($files[$j], $build_info[$i]["url_pattern"]);
+		foreach ($files as $file) {
+			$file_urls = get_urls($file, $build_info[$i]["url_pattern"]);
 			if ($file_urls) {
 				$urls = array_merge($urls, $file_urls);
-				$inside_files[] = $files[$j];
+				$inside_files[] = $file;
 			}
 		}
 
@@ -305,7 +304,7 @@ function build_file($files, $target) {
 	}
 
 	// create the combo file first.
-	$handle = fopen($target, "w");
+	$handle = fopen($target, "a");
 	$target = realpath($target);
 
 	// put files contents together.
@@ -404,9 +403,7 @@ function replace_comment_tags($scan_files, $build_info) {
 		$pattern = $build_info[$i]["replace_pattern"];
 		$html = $build_info[$i]["html"];
 
-		$file_length = count($scan_files);
-		for ($j = 0; $j < $file_length; $j++) {
-			$file = $scan_files[$j];
+		foreach ($scan_files as $file) {
 
 			$contents = file_get_contents($file);
 			if (preg_match($pattern, $contents)) {
@@ -425,9 +422,8 @@ function replace_comment_tags($scan_files, $build_info) {
 function get_logs($title, $items) {
 	$logs  = $title . "\n";
 	$logs .= "-------------------------------------------\n";
-	$length = count($items);
-	for ($i = 0; $i < $length; $i++) {
-		$logs .= $items[$i] . "\n";
+	foreach ($items as $value) {
+		$logs .= $value . "\n";
 	}
 	$logs .= "\n\n\n\n";
 
@@ -469,6 +465,7 @@ if ($target_dir == "") {
 
 
 // recursive copy source dir to target dir.
+chdir(realpath(dirname($config_file)));
 copy_dir($source_dir, $target_dir, wilds_to_regex($configs["copy_exclude_patterns"]));
 
 
