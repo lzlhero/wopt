@@ -1,14 +1,21 @@
-* 环境要求 *
+==== WOPT (Web-Optimizer) ====
 
-Windows，Linux，Mac 都支持，但需要 PHP(>5.3) 及 Java 环境
+
+* 功能说明 *
+用于对 Web 项目进行静态优化，目前支持对 CSS 和 JS 文件的合并压缩，且会自动对 HTML 中的引用进行改写。
+
+
+* 环境要求 *
+Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 
 
 
 * 使用方法 *
 
 1. 在源项目的模板中，将欲合并的 script 和 link 标记添加 data-build-id={id} 属性。
-2. 在源项目的模板中，通过 <!-- {id} --> 设置好合并资源的注释插入点。
 
+
+2. 在源项目的模板中，通过 <!-- {id} --> 设置好合并资源的注释插入点。
 假设有 chat.html 文件，添加“注释插入点”与“data-build-id”属性后，如下：
 
 <!-- chat.all.css -->
@@ -26,11 +33,10 @@ Windows，Linux，Mac 都支持，但需要 PHP(>5.3) 及 Java 环境
 
 
 3. 编写 config.json 文件。
-
 根据上面的 chat 项目，其格式如下：
 
 {
-	// copy info, windows path must like "c:\\path\\to\\project"
+	// copy info, Windows' path must like "C:\\path\\to\\project"
 	"source_dir": "/Users/lvzhiliang/htdocs/zhisland/zhisland-webim-dev",
 	"target_dir": "/Users/lvzhiliang/htdocs/php/web-optimizer/webim",
 	"copy_exclude_patterns" : [".svn", ".DS_Store"],
@@ -66,12 +72,10 @@ Windows，Linux，Mac 都支持，但需要 PHP(>5.3) 及 Java 环境
 
 
 4. 代码优化的运行
+A方式：php wopt.php <config_file>
+B方式：php wopt.php <source_dir> <target_dir> <config_file>
+B方式命令行中的 <source_dir> 与 <target_dir> 会覆盖 config_file 中的 source_dir 与 target_dir 属性。
 
-A. php wopt.php <config_file>
-B. php wopt.php <source_dir> <target_dir> <config_file>
-
-命令行中的 <source_dir> 与 <target_dir> 会覆盖 config_file 中的 source_dir 与 target_dir 属性。
 
 5. 日志
-
 每次运行完 wopt 后都会生成 wopt.log 文件，里面有日志信息。
