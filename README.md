@@ -24,6 +24,7 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 1.  在源项目的模板中，将欲合并的 `script` 和 `link` 标记添加 `data-build-id={id}` 属性。
 
 2.	在源项目的模板中，通过 `<!-- {id} -->` 设置好合并资源的注释插入点。
+
 	假设有 chat.html 文件，添加“注释插入点（`<!-- {id} -->`）”与“`data-build-id`”属性后，如下：
 
 	```html
@@ -86,4 +87,5 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 	B方式命令行中的 `<source_dir>` 与 `<target_dir>` 会覆盖 `<config_file>` 中的 `source_dir` 与 `target_dir` 属性。
 
 5.  日志
+
 	每次运行完 wopt 后都会生成 `wopt.log` 文件，里面有日志信息。
