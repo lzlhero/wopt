@@ -33,6 +33,8 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 	<link href="{$static_url}/core/js/jplayer/default/jplayer.css" rel="stylesheet" type="text/css" data-build-id="chat.all.css"/>
 	<link href="{$static_url}/chat/css/chat.css" rel="stylesheet" type="text/css" data-build-id="chat.all.css"/>
 
+	...
+	
 	<!-- chat.all.js -->
 	<script type="text/javascript" src="{$static_url}/core/js/jcrop/jquery.jcrop.js" data-build-id="chat.all.js"></script>
 	<script type="text/javascript" src="{$static_url}/core/js/jplayer/jquery.jplayer.js" data-build-id="chat.all.js"></script>
