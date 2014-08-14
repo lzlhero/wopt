@@ -13,7 +13,7 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 1. 下载当前项目
 
 2. 运行如下命令，即可在 demo 目录下生成 target-project 目录，其为 original-project 的优化结果。
-	```bash
+	```
 	(Linux/Mac): php wopt.php demo/project.json
 	(Windows): php wopt.php demo\project.json
 	```
@@ -79,7 +79,7 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 	```
 
 4.  代码优化的运行
-	```bash
+	```
 	A方式：php wopt.php <config_file>
 	B方式：php wopt.php <source_dir> <target_dir> <config_file>
 	```
