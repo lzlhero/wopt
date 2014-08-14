@@ -2,11 +2,10 @@
 	// copy info, Windows' path must like "C:\\path\\to\\project"
 	"source_dir": "original-project",
 	"target_dir": "target-project",
-	"copy_exclude_patterns" : [".svn", ".DS_Store"],
+	"copy_exclude_patterns" : [".svn", ".git", ".DS_Store"],
 
 	// scan template files list.
 	"scan_include_paths": [
-		"index.html",
 		"index.html",
 		"html"
 	],
