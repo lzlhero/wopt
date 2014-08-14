@@ -6,7 +6,7 @@
 
 ##环境要求
 
-Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
+Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境。无 Java 支持的话，不会压缩，执行会报错，但不影响其它功能。
 
 ##示例
 
