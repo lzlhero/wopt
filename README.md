@@ -24,19 +24,19 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 1.  在源项目的模板中，将欲合并的 `script` 和 `link` 标记添加 `data-build-id={id}` 属性。
 
 2.	在源项目的模板中，通过 `<!-- {id} -->` 设置好合并资源的注释插入点。
-	假设有 chat.html 文件，添加“注释插入点”与“`data-build-id`”属性后，如下：
+	假设有 chat.html 文件，添加“注释插入点（`<!-- {id} -->`）”与“`data-build-id`”属性后，如下：
 
 	```html
-	*<!-- chat.all.css -->*
-	<link href="{$static_url}/core/js/jcrop/default/jcrop.css" rel="stylesheet" type="text/css" *data-build-id="chat.all.css"*/>
-	<link href="{$static_url}/core/js/jplayer/default/jplayer.css" rel="stylesheet" type="text/css" *data-build-id="chat.all.css"*/>
-	<link href="{$static_url}/chat/css/chat.css" rel="stylesheet" type="text/css" *data-build-id="chat.all.css"*/>
+	<!-- chat.all.css -->
+	<link href="{$static_url}/core/js/jcrop/default/jcrop.css" rel="stylesheet" type="text/css" data-build-id="chat.all.css"/>
+	<link href="{$static_url}/core/js/jplayer/default/jplayer.css" rel="stylesheet" type="text/css" data-build-id="chat.all.css"/>
+	<link href="{$static_url}/chat/css/chat.css" rel="stylesheet" type="text/css" data-build-id="chat.all.css"/>
 
-	*<!-- chat.all.js -->*
-	<script type="text/javascript" src="{$static_url}/core/js/jcrop/jquery.jcrop.js" *data-build-id="chat.all.js"*></script>
-	<script type="text/javascript" src="{$static_url}/core/js/jplayer/jquery.jplayer.js" *data-build-id="chat.all.js"*></script>
-	<script type="text/javascript" src="{$static_url}/core/js/soundmanager2/soundmanager2.js" *data-build-id="chat.all.js"*></script>
-	<script type="text/javascript" src="{$static_url}/chat/js/chat.js" *data-build-id="chat.all.js"*></script>
+	<!-- chat.all.js -->
+	<script type="text/javascript" src="{$static_url}/core/js/jcrop/jquery.jcrop.js" data-build-id="chat.all.js"></script>
+	<script type="text/javascript" src="{$static_url}/core/js/jplayer/jquery.jplayer.js" data-build-id="chat.all.js"></script>
+	<script type="text/javascript" src="{$static_url}/core/js/soundmanager2/soundmanager2.js" data-build-id="chat.all.js"></script>
+	<script type="text/javascript" src="{$static_url}/chat/js/chat.js" data-build-id="chat.all.js"></script>
 	```
 
 3.  编写 config.json 文件,根据上面的 chat 项目，其格式如下：
