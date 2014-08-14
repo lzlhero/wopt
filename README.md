@@ -42,7 +42,9 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 	<script type="text/javascript" src="{$static_url}/chat/js/chat.js" data-build-id="chat.all.js"></script>
 	```
 
-3.  编写 config.json 文件,根据上面的 chat 项目，其格式如下：
+3.  编写 config.json 文件
+
+	根据上面的 chat 项目，其格式如下：
 
 	```javascript
 	{
