@@ -21,10 +21,10 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 
 ##使用方法
 
-1.  在源项目的模板中，将欲合并的 script 和 link 标记添加 data-build-id={id} 属性。
+1.  在源项目的模板中，将欲合并的 `script` 和 `link` 标记添加 `data-build-id={id}` 属性。
 
 2.	在源项目的模板中，通过 `<!-- {id} -->` 设置好合并资源的注释插入点。
-	假设有 chat.html 文件，添加“注释插入点”与“data-build-id”属性后，如下：
+	假设有 chat.html 文件，添加“注释插入点”与“`data-build-id`”属性后，如下：
 
 	```html
 	<!-- chat.all.css -->
