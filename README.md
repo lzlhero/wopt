@@ -83,7 +83,7 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境
 	A方式：php wopt.php <config_file>
 	B方式：php wopt.php <source_dir> <target_dir> <config_file>
 	```
-	B方式命令行中的 <source_dir> 与 <target_dir> 会覆盖 config_file 中的 source_dir 与 target_dir 属性。
+	B方式命令行中的 `<source_dir>` 与 `<target_dir>` 会覆盖 `<config_file>` 中的 `source_dir` 与 `target_dir` 属性。
 
 5.  日志
-	每次运行完 wopt 后都会生成 wopt.log 文件，里面有日志信息。
+	每次运行完 wopt 后都会生成 `wopt.log` 文件，里面有日志信息。
