@@ -106,19 +106,13 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境。无 Java �
 	```html
 	<link href="{$static_url}/chat/css/chat.all.css" rel="stylesheet" type="text/css" />
 
-	
-	
-
 	...
 	
 	<script src="{$static_url}/chat/js/chat.all.js" type="text/javascript"></script>
 	
-	
-	
-	
 	```
 
-	同时，会在目标目录（`target_dir`属性）中生成以下文件。
+	同时，会在目标目录（`target_dir`属性对应的目录）中生成以下文件。
 
 	```
 	webroot/static/chat/css/chat.all.css
