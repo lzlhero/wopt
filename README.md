@@ -98,3 +98,29 @@ Windows，Linux，Mac 均可，但需要 PHP(>5.3) 及 Java 环境。无 Java �
 5.  日志
 
 	每次运行完 wopt 后都会生成 `wopt.log` 文件，里面有日志信息。
+
+6.  运行效果
+
+	运行之后，chat.html 将被改写成如下的样子。
+
+	```html
+	<link href="{$static_url}/chat/css/chat.all.css" rel="stylesheet" type="text/css" />
+
+	
+	
+
+	...
+	
+	<script src="{$static_url}/chat/js/chat.all.js" type="text/javascript"></script>
+	
+	
+	
+	
+	```
+
+	同时，会在目标目录（`target_dir`属性）中生成以下文件。
+
+	```
+	webroot/static/chat/css/chat.all.css
+	webroot/static/chat/js/chat.all.js
+	```
