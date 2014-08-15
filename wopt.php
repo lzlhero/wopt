@@ -304,7 +304,7 @@ function build_file($files, $target) {
 	}
 
 	// create the combo file first.
-	$handle = fopen($target, "a");
+	$handle = fopen($target, "w");
 	$target = realpath($target);
 
 	// put files contents together.
@@ -316,7 +316,8 @@ function build_file($files, $target) {
 		if (preg_match('/.+\\.css$/i', $files[$i])) {
 			$file = $files[$i];
 
-			$contents = preg_replace_callback('/(?:url\\(\\s*["\']?\\s*)(?!https?:\/\/|\/)(.+?)(?:\\s*["\']?\\s*\\))/i',
+			// (?:url\(\s*["']?\s*)(?!https?://|/|data:)(.+?)(?:\s*["']?\s*\))
+			$contents = preg_replace_callback('/(?:url\\(\\s*["\']?\\s*)(?!https?:\/\/|\/|data:)(.+?)(?:\\s*["\']?\\s*\\))/i',
 				function($matches) use($file, $target) {
 
 					// convert url() path from source file to new target file.
